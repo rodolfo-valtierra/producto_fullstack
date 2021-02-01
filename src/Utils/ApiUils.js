@@ -14,13 +14,9 @@ return axios
 }
 
 export const getPoints = (user = '', apiKey = '', table = '') => {
-    const query = `https://${user}.carto.com/api/v2/sql?api_key=${apiKey}&q=SELECT latitude, longitude FROM ${table}`;
-    return fetch(query)
-      .then(res=> {
-        const data = [];
-        res.data.rows.forEach(point=>{
-          data.push({lat: point.latitude, lng: point.longitude})
-      });
-      return data;
-      });
-  };
+  const query = `/get/puntos?api_key=${apiKey}&q=SELECT latitude as lat, longitude lng FROM ${table}`;
+
+  return fetch(query)
+    .then(res=> res.data)
+    .catch(console.log);
+};

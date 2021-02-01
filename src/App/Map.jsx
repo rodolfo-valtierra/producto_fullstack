@@ -17,9 +17,9 @@ function Map (props) {
 
   let username = '';
   let apiKey = '';
-  let tableName = '';
+  let tableName = 'puntos';
   if (process && process.env) {
-    if(process.envREACT_APP_USERNAME) {
+    if(process.env.REACT_APP_USERNAME) {
       username = process.env.REACT_APP_USERNAME;
     }
     if(process.REACT_APP_API_KEY) {
